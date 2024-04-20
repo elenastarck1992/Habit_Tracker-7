@@ -86,27 +86,27 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 # Настройки базы данных для запуска проекта через Docker
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'habit_tracker',
-#         'USER': 'postgres',
-#         'HOST': 'db',
-#         'PASSWORD': os.getenv('POSTGRES_PASSWORD')
-#     }
-# }
-
-# Настройки базы данных для запуска проекта на локальной машине
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
+        'NAME': os.getenv('POSTGRES_DB_DOCKER'),
         'USER': os.getenv('POSTGRES_USER'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('PORT'),
+        'HOST': 'db',
         'PASSWORD': os.getenv('POSTGRES_PASSWORD')
     }
 }
+
+# Настройки базы данных для запуска проекта на локальной машине
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('POSTGRES_DB'),
+#         'USER': os.getenv('POSTGRES_USER'),
+#         'HOST': os.getenv('POSTGRES_HOST'),
+#         'PORT': os.getenv('PORT'),
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD')
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
